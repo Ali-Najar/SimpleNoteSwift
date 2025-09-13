@@ -12,36 +12,6 @@ SwiftUI client for the SimpleNote backend: onboarding → auth (register/login) 
 
 ---
 
-## Quick Start
-
-1) **Run backend** (Docker example):
-```bash
-docker compose up --build
-# API docs: http://localhost:8000/api/schema/redoc/
-```
-
-2) **Set API base URL** in `Config.swift`:
-```swift
-enum Config {
-    static let API_BASE_URL = URL(string: "http://127.0.0.1:8000/")! // Simulator + backend on your Mac
-}
-```
-> For a real device, use your Mac’s LAN IP (e.g., `http://192.168.1.10:8000/`).
-
-3) **Allow HTTP during development** (ATS exception if not using HTTPS). Add to **Info.plist**:
-```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-  <key>NSAllowsArbitraryLoads</key>
-  <true/>
-</dict>
-```
-> Prefer HTTPS in production and remove this exception.
-
-4) **Build & Run** in the simulator.
-
----
-
 ## Features
 - Onboarding with centered illustration
 - Register / Login
@@ -81,26 +51,3 @@ Views.swift           # Onboarding, Login, Register, Home, Editor, Settings, Cha
 App.swift             # Entry point, RootView
 Assets.xcassets/      # Images (add onboarding_illustration)
 ```
-
----
-
-## Troubleshooting
-
-**Simulator can’t reach backend**  
-- Use `http://127.0.0.1:8000/` for backend on your Mac.  
-- Add ATS exception for HTTP.  
-- If Docker is on another host, use that machine’s IP.
-
-**401/expired token**  
-- Client refreshes access token automatically using stored refresh token; check backend `/api/auth/token/refresh/`.
-
-**Registration 400**  
-- Backend validation (weak password or duplicate username/email). The UI surfaces the server message.
-
-**Delete 404**  
-- Wrong note id or unauthenticated request (refresh failed). Check the response body in the UI.
-
----
-
-## License
-MIT (or your preferred license).
