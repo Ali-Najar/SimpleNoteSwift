@@ -1,5 +1,6 @@
 # Developers
 Ali Najar 401102701
+
 Amirreza Inanloo 401105667
 
 # SimpleNote — iOS (SwiftUI)
