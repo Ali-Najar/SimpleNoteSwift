@@ -1,3 +1,7 @@
+# Developers
+Ali Najar 401102701
+Amirreza Inanloo 401105667
+
 # SimpleNote — iOS (SwiftUI)
 
 SwiftUI client for the SimpleNote backend: onboarding → auth (register/login) → notes (search + pagination) → editor (create/edit/delete) → settings (profile, change password, logout). Stores JWT tokens in Keychain with **auto-refresh** on 401.
